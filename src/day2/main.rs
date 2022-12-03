@@ -11,14 +11,17 @@ fn score_event(event: &str) -> usize {
         "A Z" => 3,
         "B Z" => 9,
         "C Z" => 6,
-        _ => panic!()
+        _ => panic!(),
     }
 }
-fn part_1(){
-    let total_score = include_str!("input").lines().map(|x| score_event(x)).sum::<usize>();
+fn part_1() {
+    let total_score = include_str!("input")
+        .lines()
+        .map(|x| score_event(x))
+        .sum::<usize>();
     println!("The total score would be: {}.", total_score);
 }
-fn rig_the_game<'a>(event: &'a str) -> &'a str{
+fn rig_the_game<'a>(event: &'a str) -> &'a str {
     match event {
         "A X" => "A Z",
         "B X" => "B X",
@@ -29,13 +32,18 @@ fn rig_the_game<'a>(event: &'a str) -> &'a str{
         "A Z" => "A Y",
         "B Z" => "B Z",
         "C Z" => "C X",
-        _ => panic!()
+        _ => panic!(),
     }
 }
-fn part_2(){
-    let total_score = include_str!("input").lines().map(|x| score_event(rig_the_game(x))).sum::<usize>();
-    println!("The total score after rigging the game would be: {}.", total_score);
-
+fn part_2() {
+    let total_score = include_str!("input")
+        .lines()
+        .map(|x| score_event(rig_the_game(x)))
+        .sum::<usize>();
+    println!(
+        "The total score after rigging the game would be: {}.",
+        total_score
+    );
 }
 
 fn main() {
