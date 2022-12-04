@@ -1,17 +1,17 @@
 use std::include_str;
 use std::path::Path;
 
-fn calories_by_elf() -> Vec<isize> {
+fn calories_by_elf() -> Vec<usize> {
     let f: Vec<&str> = include_str!("input").split("\n").collect();
-    let mut calories: Vec<isize> = vec![];
-    let mut total_calories: isize = 0;
+    let mut calories: Vec<usize> = vec![];
+    let mut total_calories: usize = 0;
     for value in f.into_iter() {
         total_calories = match value {
             "" => {
                 calories.push(total_calories);
                 0
             }
-            _ => total_calories + value.parse::<isize>().unwrap(),
+            _ => total_calories + value.parse::<usize>().unwrap(),
         }
     }
     calories.sort();
@@ -29,7 +29,7 @@ fn part_2() {
     let calories = calories_by_elf();
     println!(
         "The three most overworked elves are carrying total of {} calories.",
-        calories.iter().rev().take(3).sum::<isize>()
+        calories.iter().rev().take(3).sum::<usize>()
     );
 }
 fn main() {
