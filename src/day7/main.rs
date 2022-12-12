@@ -16,9 +16,6 @@ impl Directory {
     fn new(name: String) -> Self {
         Self { name, size: 0 }
     }
-    fn from_() -> Vec<Self> {
-        vec![]
-    }
 }
 fn vec_to_path_name(current_name: &Vec<String>) -> String {
     match current_name.len() {
